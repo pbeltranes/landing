@@ -1,103 +1,177 @@
-import Image from "next/image";
+import { Button } from "@/components/ui/button"
+import { Card, CardContent } from "@/components/ui/card"
+import { Instagram, Twitter, Linkedin, Github, Mail, Globe } from "lucide-react"
+import Image from "next/image"
+import Link from "next/link"
+import type { Person, WithContext } from "schema-dts"
 
-export default function Home() {
+export default function Component() {
+  // JSON-LD Structured Data
+  const jsonLd: WithContext<Person> = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: "Tu Nombre",
+    jobTitle: "Desarrollador Frontend",
+    description:
+      "Desarrollador Frontend apasionado por crear experiencias digitales increíbles. Me especializo en React, Next.js y diseño UI/UX.",
+    url: "https://tu-dominio.com",
+    image: "https://tu-dominio.com/profile-image.jpg",
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Ciudad",
+      addressCountry: "País",
+    },
+    sameAs: [
+      "https://instagram.com/tu-usuario",
+      "https://twitter.com/tu-usuario",
+      "https://linkedin.com/in/tu-usuario",
+      "https://github.com/tu-usuario",
+      "https://tu-portfolio.com",
+    ],
+    knowsAbout: ["React", "Next.js", "JavaScript", "TypeScript", "UI/UX Design", "Frontend Development"],
+    alumniOf: "Tu Universidad/Bootcamp",
+    worksFor: {
+      "@type": "Organization",
+      name: "Tu Empresa o Freelance",
+    },
+  }
+
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <>
+      {/* JSON-LD Structured Data */}
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+      <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 py-8 px-4">
+        <div className="max-w-md mx-auto">
+          {/* Profile Section with semantic HTML */}
+          <header className="text-center mb-8">
+            <div className="relative w-32 h-32 mx-auto mb-6">
+              <Image
+                src="/placeholder.svg?height=128&width=128&text=Profile"
+                alt="Foto de perfil de Tu Nombre, Desarrollador Frontend"
+                width={128}
+                height={128}
+                className="rounded-full object-cover border-4 border-white shadow-lg"
+                priority
+              />
+            </div>
+
+            <h1 className="text-2xl font-bold text-gray-900 mb-2">Tu Nombre</h1>
+
+            <p className="text-gray-600 text-sm mb-4 leading-relaxed">
+              Desarrollador Frontend apasionado por crear experiencias digitales increíbles. Me especializo en React,
+              Next.js y diseño UI/UX. Siempre aprendiendo algo nuevo.
+            </p>
+
+            <address className="flex items-center justify-center text-sm text-gray-500 not-italic">
+              <span>📍 Ciudad, País</span>
+            </address>
+          </header>
+
+          {/* Social Links with semantic navigation */}
+          <nav className="space-y-3 mb-8" aria-label="Enlaces a redes sociales">
+            <Link
+              href="https://instagram.com/tu-usuario"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Visitar perfil de Instagram de Tu Nombre"
+            >
+              <Card className="hover:shadow-md transition-shadow cursor-pointer">
+                <CardContent className="flex items-center p-4">
+                  <Instagram className="w-6 h-6 text-pink-500 mr-4" aria-hidden="true" />
+                  <div className="flex-1">
+                    <h2 className="font-semibold text-gray-900">Instagram</h2>
+                    <p className="text-sm text-gray-500">@tu-usuario</p>
+                  </div>
+                </CardContent>
+              </Card>
+            </Link>
+
+            <Link
+              href="https://twitter.com/tu-usuario"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Visitar perfil de Twitter de Tu Nombre"
+            >
+              <Card className="hover:shadow-md transition-shadow cursor-pointer">
+                <CardContent className="flex items-center p-4">
+                  <Twitter className="w-6 h-6 text-blue-500 mr-4" aria-hidden="true" />
+                  <div className="flex-1">
+                    <h2 className="font-semibold text-gray-900">Twitter</h2>
+                    <p className="text-sm text-gray-500">@tu-usuario</p>
+                  </div>
+                </CardContent>
+              </Card>
+            </Link>
+
+            <Link
+              href="https://linkedin.com/in/tu-usuario"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Visitar perfil profesional de LinkedIn de Tu Nombre"
+            >
+              <Card className="hover:shadow-md transition-shadow cursor-pointer">
+                <CardContent className="flex items-center p-4">
+                  <Linkedin className="w-6 h-6 text-blue-600 mr-4" aria-hidden="true" />
+                  <div className="flex-1">
+                    <h2 className="font-semibold text-gray-900">LinkedIn</h2>
+                    <p className="text-sm text-gray-500">Perfil profesional</p>
+                  </div>
+                </CardContent>
+              </Card>
+            </Link>
+
+            <Link
+              href="https://github.com/tu-usuario"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Ver repositorios de código en GitHub de Tu Nombre"
+            >
+              <Card className="hover:shadow-md transition-shadow cursor-pointer">
+                <CardContent className="flex items-center p-4">
+                  <Github className="w-6 h-6 text-gray-800 mr-4" aria-hidden="true" />
+                  <div className="flex-1">
+                    <h2 className="font-semibold text-gray-900">GitHub</h2>
+                    <p className="text-sm text-gray-500">Mis proyectos</p>
+                  </div>
+                </CardContent>
+              </Card>
+            </Link>
+
+            <Link
+              href="https://tu-portfolio.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Visitar portfolio web de Tu Nombre"
+            >
+              <Card className="hover:shadow-md transition-shadow cursor-pointer">
+                <CardContent className="flex items-center p-4">
+                  <Globe className="w-6 h-6 text-green-600 mr-4" aria-hidden="true" />
+                  <div className="flex-1">
+                    <h2 className="font-semibold text-gray-900">Portfolio</h2>
+                    <p className="text-sm text-gray-500">Mi sitio web</p>
+                  </div>
+                </CardContent>
+              </Card>
+            </Link>
+          </nav>
+
+          {/* Contact Section */}
+          <section className="text-center mb-8">
+            <Link href="mailto:tu-email@ejemplo.com" aria-label="Enviar email a Tu Nombre">
+              <Button className="w-full" size="lg">
+                <Mail className="w-4 h-4 mr-2" aria-hidden="true" />
+                Contactar
+              </Button>
+            </Link>
+          </section>
+
+          {/* Footer */}
+          <footer className="text-center text-xs text-gray-400">
+            <p>© {new Date().getFullYear()} Tu Nombre. Hecho con ❤️</p>
+          </footer>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
-  );
+      </div>
+    </>
+  )
 }
