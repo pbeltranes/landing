@@ -10,29 +10,28 @@ export default function Component() {
   const jsonLd: WithContext<Person> = {
     "@context": "https://schema.org",
     "@type": "Person",
-    name: "Tu Nombre",
-    jobTitle: "Desarrollador Frontend",
+    name: "Paul Beltrán",
+    jobTitle: "Software Engineer",
     description:
-      "Desarrollador Frontend apasionado por crear experiencias digitales increíbles. Me especializo en React, Next.js y diseño UI/UX.",
-    url: "https://tu-dominio.com",
-    image: "https://tu-dominio.com/profile-image.jpg",
+      "Software Engineer apasionado por crear experiencias digitales increíbles. Me especializo Tecnologias ligadas a Javascript/Typescript",
+    url: "https://paulbeltran.com",
+    image: "https://paulbeltran.com/profile.jpg",
     address: {
       "@type": "PostalAddress",
-      addressLocality: "Ciudad",
-      addressCountry: "País",
+      addressLocality: "Santiago",
+      addressCountry: "Chile",
     },
     sameAs: [
-      "https://instagram.com/tu-usuario",
-      "https://twitter.com/tu-usuario",
-      "https://linkedin.com/in/tu-usuario",
-      "https://github.com/tu-usuario",
-      "https://tu-portfolio.com",
+      "https://instagram.com/paul.beltrans",
+      "https://www.linkedin.com/in/paul-beltran-espinosa/",
+      "https://github.com/pbeltranes",
+      "https://datamedy.cl",
     ],
     knowsAbout: ["React", "Next.js", "JavaScript", "TypeScript", "UI/UX Design", "Frontend Development"],
-    alumniOf: "Tu Universidad/Bootcamp",
+    alumniOf: "Universidad Diego Portales",
     worksFor: {
       "@type": "Organization",
-      name: "Tu Empresa o Freelance",
+      name: "forEach",
     },
   }
 
@@ -47,8 +46,8 @@ export default function Component() {
           <header className="text-center mb-8">
             <div className="relative w-32 h-32 mx-auto mb-6">
               <Image
-                src="/placeholder.svg?height=128&width=128&text=Profile"
-                alt="Foto de perfil de Tu Nombre, Desarrollador Frontend"
+                src="/profile.jpg?height=128&width=128&text=Profile"
+                alt="Foto de perfil de Paul Beltrán, Software Engineer"
                 width={128}
                 height={128}
                 className="rounded-full object-cover border-4 border-white shadow-lg"
@@ -56,61 +55,45 @@ export default function Component() {
               />
             </div>
 
-            <h1 className="text-2xl font-bold text-gray-900 mb-2">Tu Nombre</h1>
+            <h1 className="text-2xl font-bold text-gray-900 mb-2">Paul Beltrán</h1>
 
             <p className="text-gray-600 text-sm mb-4 leading-relaxed">
-              Desarrollador Frontend apasionado por crear experiencias digitales increíbles. Me especializo en React,
-              Next.js y diseño UI/UX. Siempre aprendiendo algo nuevo.
+                Soy Software Engineer con pasión en el desarrollo web y emprendiemiento. Me especializo en JavaScript/Typescript y tecnologías modernas del ecosistema web. Me gusta el café por si tienes alguna duda o quieres hablar de proyectos.
+
             </p>
 
             <address className="flex items-center justify-center text-sm text-gray-500 not-italic">
-              <span>📍 Ciudad, País</span>
+              <span>📍 Santiago, Chile</span>
             </address>
           </header>
 
           {/* Social Links with semantic navigation */}
-          <nav className="space-y-3 mb-8" aria-label="Enlaces a redes sociales">
+          <nav className="mb-8" aria-label="Enlaces a redes sociales">
             <Link
-              href="https://instagram.com/tu-usuario"
+              href="https://instagram.com/paul.beltrans"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="Visitar perfil de Instagram de Tu Nombre"
+              aria-label="Visitar perfil de Instagram de paul.beltrans"
             >
-              <Card className="hover:shadow-md transition-shadow cursor-pointer">
+              <Card className="hover:shadow-md transition-shadow cursor-pointer mb-4">
                 <CardContent className="flex items-center p-4">
                   <Instagram className="w-6 h-6 text-pink-500 mr-4" aria-hidden="true" />
                   <div className="flex-1">
                     <h2 className="font-semibold text-gray-900">Instagram</h2>
-                    <p className="text-sm text-gray-500">@tu-usuario</p>
+                    <p className="text-sm text-gray-500">@paul.beltrans</p>
                   </div>
                 </CardContent>
               </Card>
             </Link>
 
-            <Link
-              href="https://twitter.com/tu-usuario"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Visitar perfil de Twitter de Tu Nombre"
-            >
-              <Card className="hover:shadow-md transition-shadow cursor-pointer">
-                <CardContent className="flex items-center p-4">
-                  <Twitter className="w-6 h-6 text-blue-500 mr-4" aria-hidden="true" />
-                  <div className="flex-1">
-                    <h2 className="font-semibold text-gray-900">Twitter</h2>
-                    <p className="text-sm text-gray-500">@tu-usuario</p>
-                  </div>
-                </CardContent>
-              </Card>
-            </Link>
 
             <Link
-              href="https://linkedin.com/in/tu-usuario"
+              href="https://www.linkedin.com/in/paul-beltran-espinosa/"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="Visitar perfil profesional de LinkedIn de Tu Nombre"
+              aria-label="Visitar perfil profesional de LinkedIn"
             >
-              <Card className="hover:shadow-md transition-shadow cursor-pointer">
+              <Card className="hover:shadow-md transition-shadow cursor-pointer mb-4">
                 <CardContent className="flex items-center p-4">
                   <Linkedin className="w-6 h-6 text-blue-600 mr-4" aria-hidden="true" />
                   <div className="flex-1">
@@ -122,12 +105,12 @@ export default function Component() {
             </Link>
 
             <Link
-              href="https://github.com/tu-usuario"
+              href="https://github.com/pbeltranes"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="Ver repositorios de código en GitHub de Tu Nombre"
+              aria-label="Ver repositorios de código en GitHub de pbeltranes"
             >
-              <Card className="hover:shadow-md transition-shadow cursor-pointer">
+              <Card className="hover:shadow-md transition-shadow cursor-pointer mb-4">
                 <CardContent className="flex items-center p-4">
                   <Github className="w-6 h-6 text-gray-800 mr-4" aria-hidden="true" />
                   <div className="flex-1">
@@ -139,17 +122,17 @@ export default function Component() {
             </Link>
 
             <Link
-              href="https://tu-portfolio.com"
+              href="https://datamedy.cl"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="Visitar portfolio web de Tu Nombre"
+              aria-label="Datamedy"
             >
-              <Card className="hover:shadow-md transition-shadow cursor-pointer">
+              <Card className="hover:shadow-md transition-shadow cursor-pointer mb-4">
                 <CardContent className="flex items-center p-4">
                   <Globe className="w-6 h-6 text-green-600 mr-4" aria-hidden="true" />
                   <div className="flex-1">
-                    <h2 className="font-semibold text-gray-900">Portfolio</h2>
-                    <p className="text-sm text-gray-500">Mi sitio web</p>
+                    <h2 className="font-semibold text-gray-900">Datamedy</h2>
+                    <p className="text-sm text-gray-500">Herramienta para profesionales independientes que desean llevar su carrera al siguiente nivel.</p>
                   </div>
                 </CardContent>
               </Card>
@@ -158,7 +141,7 @@ export default function Component() {
 
           {/* Contact Section */}
           <section className="text-center mb-8">
-            <Link href="mailto:tu-email@ejemplo.com" aria-label="Enviar email a Tu Nombre">
+            <Link href="mailto:me@paulbeltran.com" aria-label="Enviar email a Paul">
               <Button className="w-full" size="lg">
                 <Mail className="w-4 h-4 mr-2" aria-hidden="true" />
                 Contactar
@@ -168,7 +151,7 @@ export default function Component() {
 
           {/* Footer */}
           <footer className="text-center text-xs text-gray-400">
-            <p>© {new Date().getFullYear()} Tu Nombre. Hecho con ❤️</p>
+            <p>© {new Date().getFullYear()} Paul. Hecho con ❤️</p>
           </footer>
         </div>
       </div>
